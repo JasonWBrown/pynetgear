@@ -9,7 +9,7 @@ import logging
 
 import requests
 
-DEFAULT_HOST = 'routerlogin.net'
+DEFAULT_HOST = 'routerlogin.com'
 DEFAULT_USER = 'admin'
 _LOGGER = logging.getLogger(__name__)
 
@@ -35,10 +35,8 @@ class Netgear(object):
         message = SOAP_LOGIN.format(session_id=SESSION_ID,
                                     username=self.username,
                                     password=self.password)
-
         success, _ = self._make_request(
             ACTION_LOGIN, message, False)
-
         self.logged_in = success
 
         return self.logged_in
